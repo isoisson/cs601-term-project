@@ -1,0 +1,64 @@
+<!-- Please note that when running this HTML page through the W3C validator, errors show. However, according to the professor when using Vue, errors are expected when running through the validator for Vue.js. -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/main.css">
+    <title>My Gallery</title>
+</head>
+
+<body>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="about.html">About Me</a>
+        <a href="interests.html">Interests</a>
+        <a href="resume.html">Resume</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="contact.html">Contact Me</a>
+        <a href="checklist.html">Checklist</a>
+    </nav>
+
+    <header>
+        <h1>My Gallery</h1>
+    </header>
+
+    <main>
+
+        <div id="gallery">
+
+            <header>
+                <h2>View Images Of My Epic Adventures</h2>
+            </header>
+
+            <p class="instructions">Hover over a picture to enlarge it below</p>
+
+            <!-- large main picture -->
+            <div class="mainpic">
+                <!-- set main picture -->
+                <img v-bind:src="mainPicture"
+                    alt="large main travel picture at the forefront that rotates based on user's mouseover">
+            </div>
+
+            <!-- images -->
+            <div class="images">
+                <div v-for="(mainpic, index) in images" v-bind:key="index">
+                    <img v-bind:src="mainpic" @mouseover="changeMainPicture(index)"
+                        alt="displays smaller version of travel images beneath main picture that user can enlarge by hovering mouse over it">
+                </div>
+            </div>
+
+        </div>
+
+        <!-- vue and scripts -->
+        <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+        <script src="./script.js"></script>
+    </main>
+
+    <footer>
+        <p>&copy; 2023. Irene Soisson. All rights reserved.</p>
+    </footer>
+</body>
+
+</html>
